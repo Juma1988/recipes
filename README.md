@@ -1,6 +1,6 @@
-# recipe_2
+# recipe
 
-A new Flutter project.
+A Flutter project.
 
 ## Getting Started
 
