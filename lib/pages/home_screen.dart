@@ -3,12 +3,12 @@ import 'dart:math';
 import 'package:app/core/design/navigator.dart';
 import 'package:app/core/design/show_msg.dart';
 import 'package:app/pages/details_view.dart';
-import 'package:app/pages/models/01_breakfast_model.dart';
-import 'package:app/pages/models/02_lunch_model.dart';
-import 'package:app/pages/models/03_salad_model.dart';
-import 'package:app/pages/models/04_sauces_model.dart';
-import 'package:app/pages/models/05_sweets_model.dart';
-import 'package:app/pages/models/06_drinks_model.dart';
+import 'package:app/pages/models/model01_breakfast.dart';
+import 'package:app/pages/models/model02_lunch.dart';
+import 'package:app/pages/models/model03_salad.dart';
+import 'package:app/pages/models/model04_sauces.dart';
+import 'package:app/pages/models/model05_sweets.dart';
+import 'package:app/pages/models/model06_drinks.dart';
 import 'package:app/pages/view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -83,10 +83,10 @@ class _HomeScreenState extends State<HomeScreen> {
             title: Center(
           child: Row(
             children: [
-              Text('هناكل ايه'),
-              Spacer(),
+              const Text('هناكل ايه'),
+              const Spacer(),
               IconButton(
-                icon: Icon(Icons.info_outline),
+                icon: const Icon(Icons.info_outline),
                 onPressed: () {
                   appShowMsg('مكن الضغط مرتين لعمل اختيار عشوائي');
                 },
@@ -126,7 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withOpacity(0.25),
-                      offset: Offset(0, 4),
+                      offset: const Offset(0, 4),
                       blurRadius: 4,
                     ),
                   ],

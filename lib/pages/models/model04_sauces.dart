@@ -1,5 +1,6 @@
-final List<Map<String, dynamic>> sauces = [
+// ignore_for_file: spelling
 
+final sauces = <Map<String, dynamic>>[
   {
     'level': 'سهل',
     'prep_time': 10,
@@ -9,7 +10,7 @@ final List<Map<String, dynamic>> sauces = [
     'steps_count': 5.0,
     'title_en': 'Dagoos Sauce for Mandi',
     'title_ar': 'صوص الدقوس للمندى\n والمشويات',
-    'image': 'assets/images/04_sauces/dagoos_sauce.jpg',
+    'image': 'assets/images/03_salad/dagoos_sauce.jpg',
     'ingredients': [
       {'item': 'طماطم', 'quantity': '3 حبات'},
       {'item': 'فلفل حار', 'quantity': 'قرن واحد'},

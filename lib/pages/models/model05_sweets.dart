@@ -1,4 +1,4 @@
-final List<Map<String, dynamic>> sweets = [
+final sweets = <Map<String, dynamic>>[
   {
     'level': 'متوسط',
     'prep_time': 240,

@@ -28,7 +28,7 @@ Future<void> appShowMsg(
       content: Text(
         msg,
         textAlign: TextAlign.center,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.w600,
           color: Colors.white,

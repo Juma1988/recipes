@@ -1,4 +1,4 @@
-final List<Map<String, dynamic>> salad = [
+final salad = <Map<String, dynamic>>[
   {
     'level': 'سهل',
     'prep_time': 10,

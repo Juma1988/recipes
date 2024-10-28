@@ -11,21 +11,21 @@ Future<void> main() async {
   initServiceLocator();
   WidgetsFlutterBinding.ensureInitialized();
 
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp();
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: Size(375, 812),
+      designSize: const Size(375, 812),
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'ProjectAmit63',
         navigatorKey: navigatorKey,
-        home: HomeScreen(),
+        home: const HomeScreen(),
         theme: lightMode,
         darkTheme: darkMode,
       ),

@@ -39,7 +39,7 @@ class AppButton extends StatelessWidget {
 
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        minimumSize: Size(double.infinity, 50),
+        minimumSize: const Size(double.infinity, 50),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(borderRadius),
         ),
@@ -51,7 +51,7 @@ class AppButton extends StatelessWidget {
             : null,
         backgroundColor: effectiveFillColor,
         foregroundColor: effectiveFontColor,
-        padding: EdgeInsets.symmetric(vertical: 16),
+        padding: const EdgeInsets.symmetric(vertical: 16),
       ),
       onPressed: onPressed,
       child: Text(

@@ -50,14 +50,14 @@ class _AppTextFieldState extends State<AppTextField> {
         floatingLabelBehavior: widget.float,
         hintText: widget.hint,
         labelText: widget.label,
-        labelStyle: TextStyle(
+        labelStyle: const TextStyle(
           color: Color(0xFF9CA3AF)
         ),
         filled: true,
-        fillColor: Color(0xFFD1D5DB).withOpacity(0.1),
+        fillColor: const Color(0xFFD1D5DB).withOpacity(0.1),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8.0),
-          borderSide: BorderSide(color: Color(0xFFD1D5DB), width: 3),
+          borderSide: const BorderSide(color: Color(0xFFD1D5DB), width: 3),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
@@ -72,7 +72,7 @@ class _AppTextFieldState extends State<AppTextField> {
                   isHidden = !isHidden;
                   setState(() {});
                 },
-                color: Color(0xFF54565A),
+                color: const Color(0xFF54565A),
               )
             : null,
         enabled: true,
@@ -92,11 +92,11 @@ class _AppTextFieldState extends State<AppTextField> {
   Widget? _buildPrefixIcon() {
     switch (widget.prefixType) {
       case PrefixType.username:
-        return Icon(Icons.person, color: Color(0xFF54565A));
+        return const Icon(Icons.person, color: Color(0xFF54565A));
       case PrefixType.email:
-        return Icon(Icons.email, color: Color(0xFF54565A));
+        return const Icon(Icons.email, color: Color(0xFF54565A));
       case PrefixType.password:
-        return Icon(Icons.lock, color: Color(0xFF54565A));
+        return const Icon(Icons.lock, color: Color(0xFF54565A));
       case PrefixType.none:
         return null;
     }

@@ -23,7 +23,7 @@ class AppImage extends StatelessWidget {
         width: width,
         fit: fit,
         colorFilter: color != null
-            ? ColorFilter.mode(
+            ? const ColorFilter.mode(
                 Colors.transparent,
                 BlendMode.srcIn,
               )

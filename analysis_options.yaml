@@ -1,25 +1,25 @@
 include: package:flutter_lints/flutter.yaml
 
-analyzer:
-  errors:
-    unused_import: ignore
-
-    avoid_print: ignore
-    prefer_const_constructors: ignore
-    prefer_const_literals_to_create_immutables: ignore
-    prefer_const_constructors_in_immutables: ignore
-    prefer_final_fields: ignore
-    sized_box_for_whitespace: ignore
-    use_key_in_widget_constructors: ignore
-    must_be_immutable: ignore
-    prefer_typing_uninitialized_variables: ignore
-    sort_child_properties_last: ignore
-    unnecessary_string_interpolations: ignore
-    body_might_complete_normally_nullable: ignore
-    depend_on_referenced_packages: ignore
-
-
-linter:
-  rules:
-    prefer_const_constructors: true
-    prefer_single_quotes: true
+#analyzer:
+#  errors:
+#    unused_import: ignore
+#    avoid_print: ignore
+#    prefer_const_constructors: ignore
+#    prefer_const_literals_to_create_immutables: ignore
+#    prefer_const_constructors_in_immutables: ignore
+#    prefer_final_fields: ignore
+#    sized_box_for_whitespace: ignore
+#    use_key_in_widget_constructors: ignore
+#    must_be_immutable: ignore
+#    prefer_typing_uninitialized_variables: ignore
+#    sort_child_properties_last: ignore
+#    unnecessary_string_interpolations: ignore
+#    body_might_complete_normally_nullable: ignore
+#    depend_on_referenced_packages: ignore
+#
+#
+#
+#linter:
+#  rules:
+#    prefer_const_constructors: true
+#    prefer_single_quotes: true

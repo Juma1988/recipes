@@ -2,12 +2,12 @@ import 'dart:math';
 
 import 'package:app/core/design/navigator.dart';
 import 'package:app/pages/details_view.dart';
-import 'package:app/pages/models/01_breakfast_model.dart';
-import 'package:app/pages/models/02_lunch_model.dart';
-import 'package:app/pages/models/03_salad_model.dart';
-import 'package:app/pages/models/04_sauces_model.dart';
-import 'package:app/pages/models/05_sweets_model.dart';
-import 'package:app/pages/models/06_drinks_model.dart';
+import 'package:app/pages/models/model01_breakfast.dart';
+import 'package:app/pages/models/model02_lunch.dart';
+import 'package:app/pages/models/model03_salad.dart';
+import 'package:app/pages/models/model04_sauces.dart';
+import 'package:app/pages/models/model05_sweets.dart';
+import 'package:app/pages/models/model06_drinks.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -45,6 +45,9 @@ class _ViewPageState extends State<ViewPage> {
     return Directionality(
         textDirection: TextDirection.rtl,
         child: Scaffold(
+          drawer: const Drawer(
+
+          ),
             appBar: AppBar(
               title: Text(_branch[widget.categoryNumber]),
             ),
@@ -81,7 +84,7 @@ class _ViewPageState extends State<ViewPage> {
                     boxShadow: [
                       BoxShadow(
                           color: Colors.black.withOpacity(0.25),
-                          offset: Offset(0, 4),
+                          offset: const Offset(0, 4),
                           blurRadius: 4),
                     ],
                   ),
@@ -105,10 +108,10 @@ class _ViewPageState extends State<ViewPage> {
                       ),
 
                       ///Container 02
-                      Container(
+                      SizedBox(
                         width: MediaQuery.of(context).size.width * 0.65,
                         child: Padding(
-                            padding: EdgeInsets.all(8),
+                            padding: const EdgeInsets.all(8),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -127,7 +130,7 @@ class _ViewPageState extends State<ViewPage> {
                                           fontSize: 18,
                                           fontWeight: FontWeight.w600),
                                     ),
-                                    Spacer(),
+                                    const Spacer(),
                                     IconButton(
                                       onPressed: () {
                                         setState(() {
@@ -147,41 +150,41 @@ class _ViewPageState extends State<ViewPage> {
                                     )
                                   ],
                                 ),
-                                SizedBox(height: 8),
+                                const SizedBox(height: 8),
                                 Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Expanded(
                                       child: Container(
                                         padding:
-                                            EdgeInsets.symmetric(horizontal: 6),
+                                            const EdgeInsets.symmetric(horizontal: 6),
                                         height: 20,
                                         width: 75,
-                                        child: Text(
-                                            'المستوي : ${_modelList[widget.categoryNumber][index]['level']}'),
                                         decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(10),
                                             color: Theme.of(context)
                                                 .colorScheme
                                                 .primary),
+                                        child: Text(
+                                            'المستوي : ${_modelList[widget.categoryNumber][index]['level']}'),
                                       ),
                                     ),
-                                    SizedBox(width: 9),
+                                    const SizedBox(width: 9),
                                     Expanded(
                                       child: Container(
                                         padding:
-                                            EdgeInsets.symmetric(horizontal: 6),
+                                            const EdgeInsets.symmetric(horizontal: 6),
                                         height: 20,
                                         width: 75,
-                                        child: Text(
-                                            'مدة التحضير ${_modelList[widget.categoryNumber][index]['prep_time']}'),
                                         decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(10),
                                             color: Theme.of(context)
                                                 .colorScheme
                                                 .primary),
+                                        child: Text(
+                                            'مدة التحضير ${_modelList[widget.categoryNumber][index]['prep_time']}'),
                                       ),
                                     ),
                                   ],
@@ -196,14 +199,14 @@ class _ViewPageState extends State<ViewPage> {
                                             horizontal: 6.h),
                                         height: 20.h,
                                         width: 75.w,
-                                        child: Text(
-                                            'عدد المقادير  ${(_modelList[widget.categoryNumber][index]['ingredients'] as List?)?.length ?? 0}'),
                                         decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(10.r),
                                             color: Theme.of(context)
                                                 .colorScheme
                                                 .primary),
+                                        child: Text(
+                                            'عدد المقادير  ${(_modelList[widget.categoryNumber][index]['ingredients'] as List?)?.length ?? 0}'),
                                       ),
                                     ),
                                     SizedBox(width: 9.w),
@@ -213,14 +216,14 @@ class _ViewPageState extends State<ViewPage> {
                                             horizontal: 6.r),
                                         height: 20.h,
                                         width: 75.w,
-                                        child: Text(
-                                            'مده الطهو ${_modelList[widget.categoryNumber][index]['cook_time']}'),
                                         decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(10),
                                             color: Theme.of(context)
                                                 .colorScheme
                                                 .primary),
+                                        child: Text(
+                                            'مده الطهو ${_modelList[widget.categoryNumber][index]['cook_time']}'),
                                       ),
                                     ),
                                   ],
