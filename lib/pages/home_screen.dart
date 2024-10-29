@@ -38,22 +38,6 @@ class _HomeScreenState extends State<HomeScreen> {
     'assets/svg/sweet.svg',
     'assets/svg/drinks.svg',
   ];
-  final List<Widget> _page = [
-    // BreakfastView(),
-    // LunchView(),
-    // SaladView(),
-    // SaucesView(),
-    // SweetsView(),
-    // DrinksView()
-  ];
-  final List<Widget> _detailsView = [
-    // BreakfastDetailsView(itemNum: Random().nextInt(breakfast.length)),
-    // LunchDetailsView(itemNum: Random().nextInt(lunch.length)),
-    // SaladDetailsView(itemNum: Random().nextInt(salad.length)),
-    // SaucesDetailsView(itemNum: Random().nextInt(sauces.length)),
-    // SweetDetailsView(itemNum: Random().nextInt(sweets.length)),
-    // DrinksDetailsView(itemNum: Random().nextInt(drinks.length)),
-  ];
 
   final List<List> _modelList = [
     breakfast,
@@ -83,10 +67,10 @@ class _HomeScreenState extends State<HomeScreen> {
             title: Center(
           child: Row(
             children: [
-              const Text('هناكل ايه'),
-              const Spacer(),
+              Text('هناكل ايه'),
+              Spacer(),
               IconButton(
-                icon: const Icon(Icons.info_outline),
+                icon: Icon(Icons.info_outline),
                 onPressed: () {
                   appShowMsg('مكن الضغط مرتين لعمل اختيار عشوائي');
                 },
@@ -116,7 +100,8 @@ class _HomeScreenState extends State<HomeScreen> {
               },
               onDoubleTap: () {
                 AppGoto(DetailsView(
-                  itemNumber: Random().nextInt(_modelList[index].length), categoryNumber: index,
+                  itemNumber: Random().nextInt(_modelList[index].length),
+                  categoryNumber: index,
                 ));
               },
               child: Container(
@@ -126,7 +111,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withOpacity(0.25),
-                      offset: const Offset(0, 4),
+                      offset: Offset(0, 4),
                       blurRadius: 4,
                     ),
                   ],

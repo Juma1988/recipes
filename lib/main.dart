@@ -1,7 +1,9 @@
 import 'package:app/core/design/navigator.dart';
 import 'package:app/core/design/theme.dart';
 import 'package:app/core/logic/service_locator.dart';
+import 'package:app/pages/email.dart';
 import 'package:app/pages/home_screen.dart';
+import 'package:app/pages/source.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -25,7 +27,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'ProjectAmit63',
         navigatorKey: navigatorKey,
-        home: const HomeScreen(),
+        home:  HomeScreen(),
         theme: lightMode,
         darkTheme: darkMode,
       ),

@@ -13,6 +13,10 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
+	<key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>mailto</string>
+    </array>
 	<string>recipe_</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>

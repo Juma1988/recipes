@@ -1,13 +1,13 @@
 final breakfast = <Map<String, dynamic>>[
   {
     'level': 'سهل',
-    'prep_time': 10,
-    'cook_time': 10,
+    'prep_time': 0,
+    'cook_time': 0,
     'stats': false,
-    'ingredients_count': 7,
-    'steps_count': 4,
-    'title_en': 'Place holder',
-    'title_ar': 'Place holder',
+    'ingredients_count': 0,
+    'steps_count': 0,
+    'title_en': '',
+    'title_ar': '',
     'image': '',
     'ingredients': [
       {'item': '', 'quantity': ''},

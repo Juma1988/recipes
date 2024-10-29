@@ -1,26 +1,30 @@
-final lunch = <Map<String, dynamic>>[  {
-  'level': 'سهل',
-  'prep_time': 10,
-  'cook_time': 10,
-  'stats': false,
-  'ingredients_count': 7,
-  'steps_count': 4,
-  'title_en': 'Place holder',
-  'title_ar': 'Place holder',
-  'image': '',
-  'ingredients': [
-    {'item': '', 'quantity': ''},
-    {'item': '', 'quantity': ''},
-    {'item': '', 'quantity': ''},
-    {'item': '', 'quantity': ''},
-    {'item': '', 'quantity': ''},
-    {'item': '', 'quantity': ''},
-    {'item': '', 'quantity': ''},
-  ],
-  'steps': [
-    '',
-    '',
-    '',
-    '',
-  ],
-},];
+final lunch = <Map<String, dynamic>>[
+  {
+    'level': 'سهل', // Easy
+    'prep_time': 10, // Minutes
+    'cook_time': 30, // Minutes
+    'stats': false,
+    'ingredients_count': 7,
+    'steps_count': 6,
+    'title_en': 'Bacon Wrapped Chicken Tenders',
+    'title_ar': 'تندر الدجاج بالسكر\n البني واللحم',
+    'image': 'assets/images/02_lunch/Bacon_wrapped_chicken_tenders.jpg',
+    'ingredients': [
+      {'item': 'دجاج تندر', 'quantity': '1 رطل'},
+      {'item': 'شرائح لحم', 'quantity': '8-10 شرائح'},
+      {'item': 'سكر بني', 'quantity': '1/2 كوب'},
+      {'item': 'بابريكا مدخنة', 'quantity': '1 ملعقة صغيرة'},
+      {'item': 'مسحوق ثوم', 'quantity': '1/2 ملعقة صغيرة'},
+      {'item': 'فلفل أسود', 'quantity': '1/4 ملعقة صغيرة'},
+      {'item': 'أعواد أسنان', 'quantity': 'حسب الحاجة'}
+    ],
+    'steps': [
+      'سخن الفرن إلى 375 درجة فهرنهايت (190 درجة مئوية) وتبطن صينية الخبز بورق البرشمان.',
+      'في وعاء صغير، اخلطي السكر البني، البابريكا المدخنة، مسحوق الثوم، والفلفل الأسود. ',
+     'افركي هذا الخليط على قطع الدجاج بالكامل.',
+      'لف كل قطعة دجاج طرية بشريحة من اللحم وثبتيها بأعواد أسنان إن لزم الأمر.',
+      'ضعي قطع الدجاج المغلفة باللحم على صينية الخبز المجهزة. اخبزي لمدة 25-30 دقيقة أو حتى يصبح اللحم مقرمشاً والدجاج ناضجاً.',
+      'أخرجيها من الفرن واتركيها تبرد قليلاً قبل التقديم.'
+    ]
+  },
+];

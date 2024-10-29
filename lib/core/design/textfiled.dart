@@ -49,6 +49,7 @@ class _AppTextFieldState extends State<AppTextField> {
       decoration: InputDecoration(
         floatingLabelBehavior: widget.float,
         hintText: widget.hint,
+
         labelText: widget.label,
         labelStyle: const TextStyle(
           color: Color(0xFF9CA3AF)

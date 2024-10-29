@@ -11,7 +11,7 @@ class DetailsView extends StatefulWidget {
   final int itemNumber, categoryNumber;
 
   const DetailsView(
-      {super.key, required this.itemNumber, required this.categoryNumber});
+      {super.key, required this.itemNumber, this.categoryNumber = 0});
 
   @override
   State<DetailsView> createState() => _DetailsViewState();

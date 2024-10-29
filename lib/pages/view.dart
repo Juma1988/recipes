@@ -2,21 +2,22 @@ import 'dart:math';
 
 import 'package:app/core/design/navigator.dart';
 import 'package:app/pages/details_view.dart';
+import 'package:app/pages/email.dart';
 import 'package:app/pages/models/model01_breakfast.dart';
 import 'package:app/pages/models/model02_lunch.dart';
 import 'package:app/pages/models/model03_salad.dart';
 import 'package:app/pages/models/model04_sauces.dart';
 import 'package:app/pages/models/model05_sweets.dart';
 import 'package:app/pages/models/model06_drinks.dart';
+import 'package:app/pages/source.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class ViewPage extends StatefulWidget {
-  final int categoryNumber ;
-  const ViewPage({
-    super.key, required this.categoryNumber
-  });
+  final int categoryNumber;
+
+  const ViewPage({super.key, required this.categoryNumber});
 
   @override
   State<ViewPage> createState() => _ViewPageState();
@@ -31,6 +32,17 @@ class _ViewPageState extends State<ViewPage> {
     'حلويات',
     'مشروبات',
   ];
+  final List<String> _branchDrawer = [
+    'وجبات حفيفة',
+    'وجبات رأيسية',
+    'سلطات',
+    'الصلصات',
+    'حلويات',
+    'مشروبات',
+    'للتواصل و للاضافة و التعديل',
+    'مصادر',
+  ];
+
   final List<List> _modelList = [
     breakfast,
     lunch,
@@ -39,15 +51,76 @@ class _ViewPageState extends State<ViewPage> {
     sweets,
     drinks
   ];
+  final List<String> _imagesDrawer = [
+    'assets/svg/breakfast.svg',
+    'assets/svg/lunch.svg',
+    'assets/svg/salad.svg',
+    'assets/svg/sauces.svg',
+    'assets/svg/sweet.svg',
+    'assets/svg/drinks.svg',
+    'assets/svg/request.svg',
+    'assets/svg/source.svg',
+  ];
+  final List<Color> _colorsDrawer = [
+    Colors.cyan,
+    Colors.pinkAccent,
+    Colors.purple,
+    Colors.orange,
+    Colors.teal,
+    Colors.green,
+    Colors.deepPurple,
+    Colors.amber,
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Directionality(
         textDirection: TextDirection.rtl,
         child: Scaffold(
-          drawer: const Drawer(
-
-          ),
+            drawer: Drawer(
+              child: Padding(
+                padding:
+                    EdgeInsets.symmetric(horizontal: 24.w).copyWith(top: 50.h),
+                child: ListView.separated(
+                  itemCount: _branchDrawer.length,
+                  separatorBuilder: (context, index) => SizedBox(height: 24.h),
+                  itemBuilder: (context, index) => InkWell(
+                    onTap: () {
+                      if (index < 6) {
+                        AppGoto(ViewPage(
+                          categoryNumber: index,
+                        ));
+                      } else if (index == 6) {
+                        AppGoto(EmailView());
+                      } else if (index == 7) {
+                        AppGoto(ReferencesView());
+                      } else {
+                        null;
+                      }
+                    },
+                    child: Row(
+                      children: [
+                        CircleAvatar(
+                          child: SvgPicture.asset(
+                            _imagesDrawer[index],
+                            colorFilter: ColorFilter.mode(
+                                _colorsDrawer[index], BlendMode.srcIn),
+                          ),
+                        ),
+                        SizedBox(width: 24.w),
+                        Text(
+                          '${_branchDrawer[index]}',
+                          style: TextStyle(
+                              fontFamily: 'title_font',
+                              fontSize: 16,
+                              color: _colorsDrawer[index]),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
             appBar: AppBar(
               title: Text(_branch[widget.categoryNumber]),
             ),
@@ -156,8 +229,8 @@ class _ViewPageState extends State<ViewPage> {
                                   children: [
                                     Expanded(
                                       child: Container(
-                                        padding:
-                                            const EdgeInsets.symmetric(horizontal: 6),
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 6),
                                         height: 20,
                                         width: 75,
                                         decoration: BoxDecoration(
@@ -173,8 +246,8 @@ class _ViewPageState extends State<ViewPage> {
                                     const SizedBox(width: 9),
                                     Expanded(
                                       child: Container(
-                                        padding:
-                                            const EdgeInsets.symmetric(horizontal: 6),
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 6),
                                         height: 20,
                                         width: 75,
                                         decoration: BoxDecoration(
