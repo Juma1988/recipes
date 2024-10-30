@@ -57,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
             itemBuilder: (context, index) => InkWell(
               enableFeedback: true,
               autofocus: true,
-              focusColor: colors[index],
+              focusColor: colorsDrawer[index],
               onTap: () {
                 AppGoto(
                   ViewPage(
@@ -92,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       width: 60.w,
                       height: 60.h,
                       colorFilter:
-                          ColorFilter.mode(colors[index], BlendMode.srcIn),
+                          ColorFilter.mode(colorsDrawer[index], BlendMode.srcIn),
                     ),
                     SizedBox(height: 12.h),
                     Text(
@@ -101,7 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         fontWeight: FontWeight.w600,
                         fontSize: 21,
                         fontFamily: 'font',
-                        color: colors[index],
+                        color: colorsDrawer[index],
                       ),
                     ),
                   ], // This is the line where the closing bracket was missing

@@ -40,14 +40,6 @@ final List<String> images = [
   'assets/svg/drinks.svg',
 ];
 
-final List<Color> colors = [
-  Colors.cyan,
-  Colors.pinkAccent,
-  Colors.purple,
-  Colors.orange,
-  Colors.teal,
-  Colors.green,
-];
 
 final List<Color> colorsDrawer = [
   Colors.cyan,
