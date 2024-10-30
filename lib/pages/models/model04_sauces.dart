@@ -35,7 +35,7 @@ final sauces = <Map<String, dynamic>>[
     'cook_time': 0,
     'stats': false,
     'ingredients_count': 9,
-    'steps_count': 2,
+    'steps_count': 3,
     'title_en': 'Big Mac Sauce',
     'title_ar': 'صوص البيج ماك',
     'image': 'assets/images/04_sauces/big_mac_sauce.jpg',
@@ -52,7 +52,8 @@ final sauces = <Map<String, dynamic>>[
     ],
     'steps': [
       'اخلطي جميع المكونات جيداً: المايونيز، السكر، الثوم البودر، البصل البودر، البابريكا، الخل، والمسطردة.',
-      'أضيفي الخيار المخلل المبشور والبصل الأبيض المفروم (حسب الرغبة) واخلطي مرة أخرى.',
+      'أضيفي الخيار المخلل المبشور والبصل الأبيض المفروم (حسب الرغبة)',
+      'اخلطي مرة أخرى.'
     ],
   },
   {

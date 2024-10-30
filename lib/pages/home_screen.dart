@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:app/core/design/navigator.dart';
 import 'package:app/core/design/show_msg.dart';
+import 'package:app/core/string.dart';
 import 'package:app/pages/details_view.dart';
 import 'package:app/pages/models/model01_breakfast.dart';
 import 'package:app/pages/models/model02_lunch.dart';
@@ -22,40 +23,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final List<String> _branch = [
-    'وجبات حفيفة',
-    'وجبات رأيسية',
-    'سلطات',
-    'الصلصات',
-    'حلويات',
-    'مشروبات',
-  ];
-  final List<String> _images = [
-    'assets/svg/breakfast.svg',
-    'assets/svg/lunch.svg',
-    'assets/svg/salad.svg',
-    'assets/svg/sauces.svg',
-    'assets/svg/sweet.svg',
-    'assets/svg/drinks.svg',
-  ];
-
-  final List<List> _modelList = [
-    breakfast,
-    lunch,
-    salad,
-    sauces,
-    sweets,
-    drinks
-  ];
-
-  final List<Color> _colors = [
-    Colors.cyan,
-    Colors.pinkAccent,
-    Colors.purple,
-    Colors.orange,
-    Colors.teal,
-    Colors.green,
-  ];
   late final int categoryNumber;
 
   @override
@@ -72,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
               IconButton(
                 icon: Icon(Icons.info_outline),
                 onPressed: () {
-                  appShowMsg('مكن الضغط مرتين لعمل اختيار عشوائي');
+                  appShowMsg('يمكن الضغط مرتين لعمل اختيار عشوائي');
                 },
               )
             ],
@@ -81,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
         body: Padding(
           padding: EdgeInsets.all(16.h),
           child: GridView.builder(
-            itemCount: _branch.length,
+            itemCount: branch.length,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 crossAxisSpacing: 16.w,
@@ -90,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
             itemBuilder: (context, index) => InkWell(
               enableFeedback: true,
               autofocus: true,
-              focusColor: _colors[index],
+              focusColor: colors[index],
               onTap: () {
                 AppGoto(
                   ViewPage(
@@ -100,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
               },
               onDoubleTap: () {
                 AppGoto(DetailsView(
-                  itemNumber: Random().nextInt(_modelList[index].length),
+                  itemNumber: Random().nextInt(modelList[index].length),
                   categoryNumber: index,
                 ));
               },
@@ -121,20 +88,20 @@ class _HomeScreenState extends State<HomeScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SvgPicture.asset(
-                      _images[index],
+                      images[index],
                       width: 60.w,
                       height: 60.h,
                       colorFilter:
-                          ColorFilter.mode(_colors[index], BlendMode.srcIn),
+                          ColorFilter.mode(colors[index], BlendMode.srcIn),
                     ),
                     SizedBox(height: 12.h),
                     Text(
-                      _branch[index],
+                      branch[index],
                       style: TextStyle(
                         fontWeight: FontWeight.w600,
                         fontSize: 21,
                         fontFamily: 'font',
-                        color: _colors[index],
+                        color: colors[index],
                       ),
                     ),
                   ], // This is the line where the closing bracket was missing

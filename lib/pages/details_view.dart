@@ -1,11 +1,7 @@
-import 'package:app/pages/models/model01_breakfast.dart';
-import 'package:app/pages/models/model02_lunch.dart';
-import 'package:app/pages/models/model03_salad.dart';
-import 'package:app/pages/models/model04_sauces.dart';
-import 'package:app/pages/models/model05_sweets.dart';
-import 'package:app/pages/models/model06_drinks.dart';
+import 'package:app/core/string.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class DetailsView extends StatefulWidget {
   final int itemNumber, categoryNumber;
@@ -18,40 +14,52 @@ class DetailsView extends StatefulWidget {
 }
 
 class _DetailsViewState extends State<DetailsView> {
-  final List<List> _modelList = [
-    breakfast,
-    lunch,
-    salad,
-    sauces,
-    sweets,
-    drinks
-  ];
-
   late List<bool> _checkedStatesIngredients;
   late List<bool> _checkedStatesSteps;
+  bool _isFavorite = false;
 
   @override
   void initState() {
     super.initState();
     _checkedStatesIngredients = List.generate(
-      _modelList[widget.categoryNumber][widget.itemNumber]['ingredients']
-          .length,
+      modelList[widget.categoryNumber][widget.itemNumber]['ingredients'].length,
       (_) => false,
     );
     _checkedStatesSteps = List.generate(
-      _modelList[widget.categoryNumber][widget.itemNumber]['steps'].length,
+      modelList[widget.categoryNumber][widget.itemNumber]['steps'].length,
       (_) => false,
     );
+    _loadFavoriteStatus();
   }
 
-  late double ingredientsHeight = _modelList[widget.categoryNumber]
+  // Load favorite status from SharedPreferences
+  Future<void> _loadFavoriteStatus() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _isFavorite = prefs.getBool(_getFavoriteKey()) ?? false;
+    });
+  }
+
+  Future<void> _toggleFavorite() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _isFavorite = !_isFavorite;
+    });
+    await prefs.setBool(_getFavoriteKey(), _isFavorite);
+  }
+
+  String _getFavoriteKey() {
+    return 'favorite_${widget.categoryNumber}_${widget.itemNumber}';
+  }
+
+  late double ingredientsHeight = modelList[widget.categoryNumber]
               [widget.itemNumber]['ingredients_count']
           .toDouble() *
-      86;
-  late double stepsHeight = _modelList[widget.categoryNumber][widget.itemNumber]
+      86.h;
+  late double stepsHeight = modelList[widget.categoryNumber][widget.itemNumber]
               ['steps_count']
           .toDouble() *
-      86;
+      92.h;
 
   @override
   Widget build(BuildContext context) {
@@ -60,14 +68,22 @@ class _DetailsViewState extends State<DetailsView> {
       child: Scaffold(
         body: CustomScrollView(
           slivers: [
-            ///Container 01 - image
             SliverAppBar(
-              title: Text(_modelList[widget.categoryNumber][widget.itemNumber]
+              title: Text(modelList[widget.categoryNumber][widget.itemNumber]
                   ['title_ar']),
               centerTitle: true,
+              actions: [
+                IconButton(
+                  icon: Icon(
+                    _isFavorite ? Icons.favorite : Icons.favorite_border,
+                    color: _isFavorite ? Colors.red : null,
+                  ),
+                  onPressed: _toggleFavorite,
+                ),
+              ],
               flexibleSpace: FlexibleSpaceBar(
                 background: Image.asset(
-                  _modelList[widget.categoryNumber][widget.itemNumber]['image'],
+                  modelList[widget.categoryNumber][widget.itemNumber]['image'],
                   fit: BoxFit.cover,
                 ),
               ),
@@ -76,7 +92,6 @@ class _DetailsViewState extends State<DetailsView> {
               backgroundColor: Theme.of(context).colorScheme.primary,
               expandedHeight: MediaQuery.of(context).size.height * 0.60,
             ),
-
             SliverList(
               delegate: SliverChildListDelegate([
                 Padding(
@@ -103,7 +118,7 @@ class _DetailsViewState extends State<DetailsView> {
                   child: Center(
                     child: ListView.builder(
                       physics: const NeverScrollableScrollPhysics(),
-                      itemCount: _modelList[widget.categoryNumber]
+                      itemCount: modelList[widget.categoryNumber]
                               [widget.itemNumber]['ingredients']
                           .length,
                       itemBuilder: (context, index) => Column(
@@ -122,11 +137,11 @@ class _DetailsViewState extends State<DetailsView> {
                             child: CheckboxListTile(
                               controlAffinity: ListTileControlAffinity.leading,
                               tristate: true,
-                              title: Text(_modelList[widget.categoryNumber]
+                              title: Text(modelList[widget.categoryNumber]
                                       [widget.itemNumber]['ingredients'][index]
                                   ['item']),
                               subtitle: Text(
-                                _modelList[widget.categoryNumber]
+                                modelList[widget.categoryNumber]
                                         [widget.itemNumber]['ingredients']
                                     [index]['quantity'],
                                 style: TextStyle(
@@ -176,7 +191,7 @@ class _DetailsViewState extends State<DetailsView> {
                   child: Center(
                     child: ListView.builder(
                       physics: const NeverScrollableScrollPhysics(),
-                      itemCount: _modelList[widget.categoryNumber]
+                      itemCount: modelList[widget.categoryNumber]
                               [widget.itemNumber]['steps']
                           .length,
                       itemBuilder: (context, index) => Column(
@@ -193,12 +208,10 @@ class _DetailsViewState extends State<DetailsView> {
                               ],
                             ),
                             child: CheckboxListTile(
-                              controlAffinity:
-                                  ListTileControlAffinity.leading,
+                              controlAffinity: ListTileControlAffinity.leading,
                               tristate: true,
-                              title: Text(_modelList[widget.categoryNumber]
-                                      [widget.itemNumber]['steps'][index]
-                                ),
+                              title: Text(modelList[widget.categoryNumber]
+                                  [widget.itemNumber]['steps'][index]),
                               value: _checkedStatesSteps[index],
                               onChanged: (value) {
                                 setState(() {
